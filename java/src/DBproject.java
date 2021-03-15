@@ -296,12 +296,23 @@ public class DBproject{
 	}//end readChoice
 
 	public static void AddShip(DBproject esql) {//1
+		//ship has
+		//ID (list length -1)
+		//model
+		//make
+		//age
+		//seats
+		
 	}
 
 	public static void AddCaptain(DBproject esql) {//2
+		//ID
+		//name
 	}
 
 	public static void AddCruise(DBproject esql) {//3
+		//c-num
+		//cost
 	}
 
 
