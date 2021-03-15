@@ -296,40 +296,75 @@ public class DBproject{
 	}//end readChoice
 
 	public static void AddShip(DBproject esql) {//1
-		//ship has
 		//ID (list length -1)
-		//model
-		//make
-		//age
-		//seats
+		/*id INTEGER NOT NULL,
+		make CHAR(32) NOT NULL,
+		model CHAR(64) NOT NULL,
+		age _YEAR_1970 NOT NULL,
+		seats _SEATS NOT NULL,
+		PRIMARY KEY (id)*/
 		
 	}
 
 	public static void AddCaptain(DBproject esql) {//2
-		//ID
-		//name
+		/*id INTEGER NOT NULL,
+		fullname CHAR(128),
+		nationality CHAR(24),
+		PRIMARY KEY (id)*/
 	}
 
 	public static void AddCruise(DBproject esql) {//3
-		//c-num
-		//cost
+		/*cnum INTEGER NOT NULL,
+		cost _PINTEGER NOT NULL,
+		num_sold _PZEROINTEGER NOT NULL,
+		num_stops _PZEROINTEGER NOT NULL,
+		actual_departure_date DATE NOT NULL,
+		actual_arrival_date DATE NOT NULL,
+		arrival_port CHAR(5) NOT NULL,-- PORT CODE --
+		departure_port CHAR(5) NOT NULL,-- PORT CODE --
+		PRIMARY KEY (cnum)*/
+		
 	}
 
 
 	public static void BookCruise(DBproject esql) {//4
 		// Given a customer and a Cruise that he/she wants to book, add a reservation to the DB
+		//get customer id
+		//get cruise num
+		/*rnum INTEGER NOT NULL,
+	ccid INTEGER NOT NULL,
+	cid INTEGER NOT NULL,
+	status _STATUS,
+	PRIMARY KEY (rnum),
+	FOREIGN KEY (ccid) REFERENCES Customer(id),
+	FOREIGN KEY (cid) REFERENCES Cruise(cnum)*/
+		
 	}
 
 	public static void ListNumberOfAvailableSeats(DBproject esql) {//5
 		// For Cruise number and date, find the number of availalbe seats (i.e. total Ship capacity minus booked seats )
+		//get seats from ship
+		//get date from cruise
+		//find num sold
+		
+		
 	}
 
 	public static void ListsTotalNumberOfRepairsPerShip(DBproject esql) {//6
 		// Count number of repairs per Ships and list them in descending order
+		//count * 
+		//from repairs
+		//group by ships
+		//descending order
 	}
 
 	
 	public static void FindPassengersCountWithStatus(DBproject esql) {//7
 		// Find how many passengers there are with a status (i.e. W,C,R) and list that number.
+		//get input status (has to be W,C,R)
+		//count*
+		//passengers 
+		//from reservations
+		//where (statuse = input)
 	}
 }
