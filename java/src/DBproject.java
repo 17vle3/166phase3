@@ -296,6 +296,7 @@ public class DBproject{
 	}//end readChoice
 
 	public static void AddShip(DBproject esql) {//1
+		
 		//ID (list length -1)
 		/*id INTEGER NOT NULL,
 		make CHAR(32) NOT NULL,
@@ -303,6 +304,26 @@ public class DBproject{
 		age _YEAR_1970 NOT NULL,
 		seats _SEATS NOT NULL,
 		PRIMARY KEY (id)*/
+		String query = "SELECT pname FROM catalog C,parts P WHERE P.pid = C.pid and C.cost < ";
+		 System.out.print("\tEnter make: $");
+		 String input = in.readLine();
+		 query += input;
+		
+		System.out.print("\tEnter model: $");
+		 String input = in.readLine();
+		
+		System.out.print("\tEnter year: $");
+		 String input = in.readLine();
+		
+		System.out.print("\tEnter seats: $");
+		 String input = in.readLine();
+		//find id by finding list of ship size -1
+
+		 int rowCount = esql.executeQuery(query);
+		 System.out.println ("total row(s): " + rowCount);
+	      }catch(Exception e){
+		 System.err.println (e.getMessage());
+	      }
 		
 	}
 
@@ -311,6 +332,27 @@ public class DBproject{
 		fullname CHAR(128),
 		nationality CHAR(24),
 		PRIMARY KEY (id)*/
+		String query = "SELECT pname FROM catalog C,parts P WHERE P.pid = C.pid and C.cost < ";
+		 System.out.print("\tEnter make: $");
+		 String input = in.readLine();
+		 query += input;
+		
+		System.out.print("\tEnter fullname: $");
+		 String input = in.readLine();
+		
+		System.out.print("\tEnter nationality: $");
+		 String input = in.readLine();
+		
+		//find id by finding list of ship size -1
+
+		 int rowCount = esql.executeQuery(query);
+		 System.out.println ("total row(s): " + rowCount);
+	      }catch(Exception e){
+		 System.err.println (e.getMessage());
+	      }
+		
+		
+		
 	}
 
 	public static void AddCruise(DBproject esql) {//3
