@@ -304,7 +304,8 @@ public class DBproject{
 		age _YEAR_1970 NOT NULL,
 		seats _SEATS NOT NULL,
 		PRIMARY KEY (id)*/
-		String query = "SELECT pname FROM catalog C,parts P WHERE P.pid = C.pid and C.cost < ";
+		String query = "INSERT INTO TABLE_NAME (ID, make, model,age,seats)"; 
+		query+="VALUES (";
 		 System.out.print("\tEnter make: $");
 		 String input = in.readLine();
 		 query += input;
@@ -318,6 +319,8 @@ public class DBproject{
 		System.out.print("\tEnter seats: $");
 		 String input = in.readLine();
 		//find id by finding list of ship size -1
+		
+		query+=");";
 
 		 int rowCount = esql.executeQuery(query);
 		 System.out.println ("total row(s): " + rowCount);
