@@ -436,10 +436,10 @@ public class DBproject{
 		//from repairs
 		//group by ships
 		//order by repairs DESC
-		String query ="COUNT *";
-		query +="FROM repairs";
-		query += "GROUP BY ships";
-		query += "ORDER BY repairs DESC";
+		String query ="COUNT * ";
+		query +="FROM Repairs ";
+		query += "GROUP BY Ship ";
+		query += "ORDER BY Repairs DESC";
 		int rowCount = esql.executeQuery(query);
 	}
 
