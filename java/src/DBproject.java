@@ -304,7 +304,7 @@ public class DBproject{
 		age _YEAR_1970 NOT NULL,
 		seats _SEATS NOT NULL,
 		PRIMARY KEY (id)*/
-		String query = "INSERT INTO TABLE_NAME (ID, make, model,age,seats)"; 
+		String query = "INSERT INTO Ship (ID, make, model,age,seats)"; 
 		query+="VALUES (";
 		
 		do {
