@@ -307,7 +307,29 @@ public class DBproject{
 		String query = "INSERT INTO TABLE_NAME (ID, make, model,age,seats)"; 
 		query+="VALUES (";
 		
-		System.out.print("\tEnter ID: $");
+		do {
+		    validEntry = true;
+		    try {
+			System.out.print("\tEnter ID: $");
+			shipName = scnr.nextLine();
+
+			for (int i = 0; i < shipList.size(); ++i) {
+			    if (shipList.get(i).getShipID()) {
+				throw new Exception("Invalid entry. Ship name already exists. Ship name must be unique.");
+			    }
+			}
+			if (ID.isEmpty() || ID.isBlank()) {
+			    throw new Exception("Invalid entry. Please enter a ship name.");
+			}
+		    }
+		    catch (Exception excpt) {
+			System.out.println("Bad value exception. " + excpt.getMessage());
+			validEntry = false;
+		    }
+		} while (!validEntry);
+		
+		
+		
 		 String input = in.readLine();
 		 query += input;
 		
