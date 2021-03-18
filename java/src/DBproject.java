@@ -306,6 +306,12 @@ public class DBproject{
 		PRIMARY KEY (id)*/
 		String query = "INSERT INTO TABLE_NAME (ID, make, model,age,seats)"; 
 		query+="VALUES (";
+		
+		System.out.print("\tEnter ID: $");
+		 String input = in.readLine();
+		 query += input;
+		
+		
 		 System.out.print("\tEnter make: $");
 		 String input = in.readLine();
 		 query += input;
@@ -335,8 +341,9 @@ public class DBproject{
 		fullname CHAR(128),
 		nationality CHAR(24),
 		PRIMARY KEY (id)*/
-		String query = "SELECT pname FROM catalog C,parts P WHERE P.pid = C.pid and C.cost < ";
-		 System.out.print("\tEnter make: $");
+		String query = "INSERT INTO TABLE_NAME (ID, fullname, nationality)"; 
+		query+="VALUES (";
+		 System.out.print("\tEnter ID: $");
 		 String input = in.readLine();
 		 query += input;
 		
@@ -346,7 +353,8 @@ public class DBproject{
 		System.out.print("\tEnter nationality: $");
 		 String input = in.readLine();
 		
-		//find id by finding list of ship size -1
+		
+		query+=");";
 
 		 int rowCount = esql.executeQuery(query);
 		 System.out.println ("total row(s): " + rowCount);
@@ -369,6 +377,28 @@ public class DBproject{
 		departure_port CHAR(5) NOT NULL,-- PORT CODE --
 		PRIMARY KEY (cnum)*/
 		
+		String query = "INSERT INTO TABLE_NAME (cnum, cost, num_sold, num_stops,actual_departure_date,actual_arrival_date,arrival_port, departure_port)"; 
+		query+="VALUES (";
+		 System.out.print("\tEnter ID: $");
+		 String input = in.readLine();
+		 query += input;
+		
+		System.out.print("\tEnter fullname: $");
+		 String input = in.readLine();
+		
+		System.out.print("\tEnter nationality: $");
+		 String input = in.readLine();
+		
+		
+		query+=");";
+
+		 int rowCount = esql.executeQuery(query);
+		 System.out.println ("total row(s): " + rowCount);
+	      }catch(Exception e){
+		 System.err.println (e.getMessage());
+	      }
+		
+		
 	}
 
 
@@ -384,6 +414,9 @@ public class DBproject{
 	FOREIGN KEY (ccid) REFERENCES Customer(id),
 	FOREIGN KEY (cid) REFERENCES Cruise(cnum)*/
 		
+		System.out.print("\tEnter Customer: $");
+		System.out.print("\tEnter cruise: $");
+		
 	}
 
 	public static void ListNumberOfAvailableSeats(DBproject esql) {//5
@@ -391,6 +424,8 @@ public class DBproject{
 		//get seats from ship
 		//get date from cruise
 		//find num sold
+		System.out.print("\tEnter Cruise Number: $");
+		System.out.print("\tEnter Date: $");
 		
 		
 	}
@@ -400,7 +435,12 @@ public class DBproject{
 		//count * 
 		//from repairs
 		//group by ships
-		//descending order
+		//order by repairs DESC
+		String query ="COUNT *";
+		query +="FROM repairs";
+		query += "GROUP BY ships";
+		query += "ORDER BY repairs DESC";
+		int rowCount = esql.executeQuery(query);
 	}
 
 	
@@ -411,5 +451,6 @@ public class DBproject{
 		//passengers 
 		//from reservations
 		//where (statuse = input)
+		System.out.print("\tEnter input status: $");
 	}
 }
