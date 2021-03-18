@@ -313,15 +313,12 @@ public class DBproject{
 		    entry = true;
 		    try {
 			System.out.print("\tEnter ID: $");
-			id = scnr.nextInt();
+			input = scnr.nextInt();
 
 			for (int i = 0; i < shipList.size(); ++i) {
 			    if (shipList.get(i).getShipID()) {
 				throw new Exception("ID already exists.");
 			    }
-			}
-			if (ID <0) {
-			    throw new Exception("negative input. please enter a positive number.");
 			}
 		    }
 		    catch (Exception excpt) {
