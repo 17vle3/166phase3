@@ -304,40 +304,40 @@ public class DBproject{
 		age _YEAR_1970 NOT NULL,
 		seats _SEATS NOT NULL,
 		PRIMARY KEY (id)*/
-		String query = "INSERT INTO Ship (ID, make, model,age,seats)"; 
-		query+="VALUES (";
-		
+		String query = "INSERT INTO Ship (ID, make, model,age,seats)"; 	
 		bool entry = true;
-		integer id = -1;
+		integer id ;
 		do {
-		    entry = true;
 		    try {
 			System.out.print("\tEnter ID: $");
-			input = scnr.nextInt();
-
-			for (int i = 0; i < shipList.size(); ++i) {
-			    if (shipList.get(i).getShipID()) {
-				throw new Exception("ID already exists.");
-			    }
-			}
+			id = Integer.parseInt(in.readLine());
+			break;
 		    }
 		    catch (Exception excpt) {
-			System.out.println("\tInvalid input:" + excpt.getMessage());
-			entry = false;
+			System.out.println("\tInvalid input");
+			continue;
 		    }
-		} while (!entry);
+		} while (true);
+		
+		string make;
+		do {
+		    try {
+			System.out.print("\tEnter make: ");
+			make = in.readLine();
+			break;
+		    }
+		    catch (Exception excpt) {
+			System.out.println("\tInvalid input");
+			continue;
+		    }
+		} while (true);
 		
 		
-		
+		 
 		 String input = in.readLine();
 		 query += input;
 		
-		
-		 System.out.print("\tEnter make: $");
-		 String input = in.readLine();
-		 query += input;
-		
-		System.out.print("\tEnter model: $");
+		System.out.print("\tEnter model: ");
 		 String input = in.readLine();
 		
 		System.out.print("\tEnter year: $");
