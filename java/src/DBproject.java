@@ -582,10 +582,59 @@ public class DBproject{
 		    }
 		} while (true);
 		
+		String actual_arrival_date  ;
+		do {
+		    try {
+			System.out.print("\tEnter actual_arrival_date  [yyyy-MM-dd HH:mm]: $");
+			actual_arrival_date  = in.readLine();
+			LocalDate localadd = LocalDate.parse(actual_arrival_date , Date);
+		    }
+		    catch (Exception e) {
+			System.out.println("\tInvalid input: ") + e.getMessage());
+			continue;
+		    }
+		} while (true);
+		
+		String arrival_port   ;
+		do {
+		    try {
+			System.out.print("\tEnter arrival_port : $");
+			arrival_port   = in.readLine();
+			if(arrival_port.length() < 1) {
+				throw new RuntimeException("empty input");
+			}
+			else if(arrival_port.length() > 5){
+				throw new RuntimeException("input is too large");
+			}
+		    }
+		    catch (Exception e) {
+			System.out.println("\tInvalid input: ") + e.getMessage());
+			continue;
+		    }
+		} while (true);
+		
+		String departure_port    ;
+		do {
+		    try {
+			System.out.print("\tEnter departure_port  : $");
+			departure_port    = in.readLine();
+			if(departure_port .length() < 1) {
+				throw new RuntimeException("empty input");
+			}
+			else if(departure_port .length() > 5){
+				throw new RuntimeException("input is too large");
+			}
+		    }
+		    catch (Exception e) {
+			System.out.println("\tInvalid input: ") + e.getMessage());
+			continue;
+		    }
+		} while (true);
 		
 		try{
 		String query = "INSERT INTO TABLE_NAME (cnum, cost, num_sold, num_stops,actual_departure_date,actual_arrival_date,arrival_port, departure_port)"; 
-		query+="VALUES (";
+		query += " VALUES (" + cnum  + ", \'" + cost  + "\', \'" + num_sold "\', \'" num_stops "\', \'" actual_departure_date";
+		query+= "\', \'" +   actual_arrival_date  + "\', \'" + arrival_port   + "\', \'" + departure_port+"\');"; 
 
 		 esql.executeQuery(query);
 	      }catch(Exception e){
