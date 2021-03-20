@@ -334,7 +334,7 @@ public class DBproject{
 			break;
 		    }
 		    catch (Exception e) {
-			System.out.println("\tInvalid input: ") + e.getMessage());
+			System.out.println("\tInvalid input: " + e.getMessage() );
 			continue;
 		    }
 		} while (true);
@@ -353,7 +353,7 @@ public class DBproject{
 			break;
 		    }
 		    catch (Exception e) {
-			System.out.println("\tInvalid input: ") + e.getMessage());
+			System.out.println("\tInvalid input: " + e.getMessage());
 			continue;
 		    }
 		} while (true);
@@ -369,7 +369,7 @@ public class DBproject{
 			break;
 		    }
 		    catch (Exception e) {
-			System.out.println("\tInvalid input: ") + e.getMessage());
+			System.out.println("\tInvalid input: " + e.getMessage());
 			continue;
 		    }
 		} while (true);
@@ -388,7 +388,7 @@ public class DBproject{
 			break;
 		    }
 		    catch (Exception e) {
-			System.out.println("\tInvalid input: ") + e.getMessage());
+			System.out.println("\tInvalid input: " + e.getMessage());
 			continue;
 		    }
 		} while (true);
@@ -440,7 +440,7 @@ public class DBproject{
 			break;
 		    }
 		    catch (Exception e) {
-			System.out.println("\tInvalid input: ") + e.getMessage());
+			System.out.println("\tInvalid input: " + e.getMessage());
 			continue;
 		    }
 		} while (true);
@@ -459,7 +459,7 @@ public class DBproject{
 			break;
 		    }
 		    catch (Exception e) {
-			System.out.println("\tInvalid input: ") + e.getMessage());
+			System.out.println("\tInvalid input: " + e.getMessage());
 			continue;
 		    }
 		} while (true);
@@ -516,7 +516,7 @@ public class DBproject{
 			}
 		    }
 		    catch (Exception e) {
-			System.out.println("\tInvalid input: ") + e.getMessage());
+			System.out.println("\tInvalid input: " + e.getMessage());
 			continue;
 		    }
 		} while (true);
@@ -534,7 +534,7 @@ public class DBproject{
 			}
 		    }
 		    catch (Exception e) {
-			System.out.println("\tInvalid input: ") + e.getMessage());
+			System.out.println("\tInvalid input: " + e.getMessage());
 			continue;
 		    }
 		} while (true);
@@ -549,7 +549,7 @@ public class DBproject{
 			}
 		    }
 		    catch (Exception e) {
-			System.out.println("\tInvalid input: ") + e.getMessage());
+			System.out.println("\tInvalid input: " + e.getMessage());
 			continue;
 		    }
 		} while (true);
@@ -564,7 +564,7 @@ public class DBproject{
 			}
 		    }
 		    catch (Exception e) {
-			System.out.println("\tInvalid input: ") + e.getMessage());
+			System.out.println("\tInvalid input: " + e.getMessage());
 			continue;
 		    }
 		} while (true);
@@ -577,7 +577,7 @@ public class DBproject{
 			LocalDate localadd = LocalDate.parse(actual_departure_date, Date);
 		    }
 		    catch (Exception e) {
-			System.out.println("\tInvalid input: ") + e.getMessage());
+			System.out.println("\tInvalid input: " + e.getMessage());
 			continue;
 		    }
 		} while (true);
@@ -590,7 +590,7 @@ public class DBproject{
 			LocalDate localadd = LocalDate.parse(actual_arrival_date , Date);
 		    }
 		    catch (Exception e) {
-			System.out.println("\tInvalid input: ") + e.getMessage());
+			System.out.println("\tInvalid input: " + e.getMessage());
 			continue;
 		    }
 		} while (true);
@@ -608,7 +608,7 @@ public class DBproject{
 			}
 		    }
 		    catch (Exception e) {
-			System.out.println("\tInvalid input: ") + e.getMessage());
+			System.out.println("\tInvalid input: " + e.getMessage());
 			continue;
 		    }
 		} while (true);
@@ -626,7 +626,7 @@ public class DBproject{
 			}
 		    }
 		    catch (Exception e) {
-			System.out.println("\tInvalid input: ") + e.getMessage());
+			System.out.println("\tInvalid input: " + e.getMessage());
 			continue;
 		    }
 		} while (true);
@@ -855,7 +855,7 @@ public class DBproject{
 			LocalDate localadd = LocalDate.parse(actual_departure_date, Date);
 		    }
 		    catch (Exception e) {
-			System.out.println("\tInvalid input: ") + e.getMessage());
+			System.out.println("\tInvalid input: " + e.getMessage());
 			continue;
 		    }
 		} while (true);
@@ -907,7 +907,7 @@ public class DBproject{
 			break;
 		    }
 		    catch (Exception e) {
-			System.out.println("\tInvalid input. Please input a \"W\" , \"C\" or \"R\". ") + e.getMessage());
+			System.out.println("\tInvalid input. Please input a \"W\" , \"C\" or \"R\". " + e.getMessage());
 			continue;
 		    }
 		} while (true);
