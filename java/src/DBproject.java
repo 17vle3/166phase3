@@ -869,7 +869,7 @@ public class DBproject{
 		//order by repairs DESC
 		
 		try {
-			String query ="COUNT * FROM Repairs GROUP BY Ship ORDER BY Repairs DESC";			
+			String query ="COUNT (*) FROM Repairs GROUP BY Ship ORDER BY Repairs DESC";			
 			esql.executeQueryAndPrintResult(query);
 		}
 		catch(Exception e) {
@@ -891,7 +891,7 @@ public class DBproject{
 		    try {
 			System.out.print("\tEnter status: ");
 			input = in.readLine();
-			if( !(input == 'W' || input == 'C' || input == 'R') ) {
+			if( !input == 'W' && !input == 'C' && !input == 'R' ) {
 				throw new RuntimeException("");
 			}
 			break;
@@ -903,7 +903,7 @@ public class DBproject{
 		} while (true);
 		
 		try {
-			String query ="COUNT * FROM Reservation WHERE status = \'" + input + "\';";			
+			String query ="COUNT (*) FROM Reservation WHERE status = \'" + input + "\';";			
 			esql.executeQueryAndPrintResult(query);
 		}
 		catch(Exception e) {
