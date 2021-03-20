@@ -886,11 +886,11 @@ public class DBproject{
 		//passengers 
 		//from reservations
 		//where (statuse = input)
-		char input;
+		String input;
 		do {
 		    try {
 			System.out.print("\tEnter status: ");
-			input = in.nextChar();
+			input = in.readLine();
 			if(input != 'W' && input != 'C' && input != 'R' ) {
 				throw new RuntimeException("");
 			}
