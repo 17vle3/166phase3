@@ -903,6 +903,20 @@ public class DBproject{
 		//passengers 
 		//from reservations
 		//where (statuse = input)
-		System.out.print("\tEnter input status: $");
+		String input;
+		do {
+		    try {
+			System.out.print("\tEnter status: ");
+			model = in.readLine();
+			if(input != "W" || input != "C" || input != "R" ) {
+				throw new RuntimeException("");
+			}
+			break;
+		    }
+		    catch (Exception e) {
+			System.out.println("\tInvalid input. Please input a \"W\" , \"C\" or \"R\". ") + e.getMessage());
+			continue;
+		    }
+		} while (true);
 	}
 }
