@@ -879,7 +879,7 @@ public class DBproject{
 		do {
 		    try {
 			System.out.print("\tEnter status: ");
-			model = in.readLine();
+			input = in.readLine();
 			if(input != "W" || input != "C" || input != "R" ) {
 				throw new RuntimeException("");
 			}
