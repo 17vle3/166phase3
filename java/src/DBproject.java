@@ -488,8 +488,7 @@ public class DBproject{
 		departure_port CHAR(5) NOT NULL,-- PORT CODE --
 		PRIMARY KEY (cnum)*/
 		
-		String query = "INSERT INTO TABLE_NAME (cnum, cost, num_sold, num_stops,actual_departure_date,actual_arrival_date,arrival_port, departure_port)"; 
-		query+="VALUES (";
+		
 		 
 		integer cnum ;
 		do {
@@ -586,10 +585,11 @@ public class DBproject{
 		} while (true);
 		
 		
-		query+=");";
+		try{
+		String query = "INSERT INTO TABLE_NAME (cnum, cost, num_sold, num_stops,actual_departure_date,actual_arrival_date,arrival_port, departure_port)"; 
+		query+="VALUES (";
 
-		 int rowCount = esql.executeQuery(query);
-		 System.out.println ("total row(s): " + rowCount);
+		 esql.executeQuery(query);
 	      }catch(Exception e){
 		 System.err.println (e.getMessage());
 	      }
