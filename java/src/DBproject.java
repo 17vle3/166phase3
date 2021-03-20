@@ -655,7 +655,7 @@ public class DBproject{
 	status _STATUS,
 	PRIMARY KEY (rnum),
 	FOREIGN KEY (ccid) REFERENCES Customer(id),
-	FOREIGN KEY (cid) REFERENCES Cruise(cnum)*/
+	FOREIGN KEY (cid) REFERENCES Cruise(cnum)
 		
 		ccid INTEGER NOT NULL,
 	cid INTEGER NOT NULL,
