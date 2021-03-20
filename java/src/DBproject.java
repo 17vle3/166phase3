@@ -891,7 +891,7 @@ public class DBproject{
 		    try {
 			System.out.print("\tEnter status: ");
 			input = in.readLine();
-			if( !(input == 'W' || !input == 'C' || !input == 'R') ) {
+			if( !(input == 'W' || input == 'C' || input == 'R') ) {
 				throw new RuntimeException("");
 			}
 			break;
