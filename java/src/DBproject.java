@@ -913,7 +913,7 @@ public class DBproject{
 		} while (true);
 		
 		try {
-			String query ="COUNT * FROM Reservation WHERE status = \'" + input : "\'";			
+			String query ="COUNT * FROM Reservation WHERE status = \'" + input + "\'";			
 			esql.executeQueryAndPrintResult(query);
 		}
 		catch(Exception e) {
