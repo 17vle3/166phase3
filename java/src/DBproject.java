@@ -314,7 +314,7 @@ public class DBproject{
 			id = Integer.parseInt(in.readLine());
 			break;
 		    }
-		    catch (Exception excpt) {
+		    catch (Exception e) {
 			System.out.println("\tInvalid input");
 			continue;
 		    }
@@ -333,7 +333,7 @@ public class DBproject{
 			}
 			break;
 		    }
-		    catch (Exception excpt) {
+		    catch (Exception e) {
 			System.out.println("\tInvalid input: ") + e.getMessage());
 			continue;
 		    }
@@ -352,7 +352,7 @@ public class DBproject{
 			}
 			break;
 		    }
-		    catch (Exception excpt) {
+		    catch (Exception e) {
 			System.out.println("\tInvalid input: ") + e.getMessage());
 			continue;
 		    }
@@ -368,7 +368,7 @@ public class DBproject{
 			}
 			break;
 		    }
-		    catch (Exception excpt) {
+		    catch (Exception e) {
 			System.out.println("\tInvalid input: ") + e.getMessage());
 			continue;
 		    }
@@ -387,7 +387,7 @@ public class DBproject{
 			}
 			break;
 		    }
-		    catch (Exception excpt) {
+		    catch (Exception e) {
 			System.out.println("\tInvalid input: ") + e.getMessage());
 			continue;
 		    }
@@ -420,7 +420,7 @@ public class DBproject{
 			id = Integer.parseInt(in.readLine());
 			break;
 		    }
-		    catch (Exception excpt) {
+		    catch (Exception e) {
 			System.out.println("\tInvalid input");
 			continue;
 		    }
@@ -439,7 +439,7 @@ public class DBproject{
 			}
 			break;
 		    }
-		    catch (Exception excpt) {
+		    catch (Exception e) {
 			System.out.println("\tInvalid input: ") + e.getMessage());
 			continue;
 		    }
@@ -458,7 +458,7 @@ public class DBproject{
 			}
 			break;
 		    }
-		    catch (Exception excpt) {
+		    catch (Exception e) {
 			System.out.println("\tInvalid input: ") + e.getMessage());
 			continue;
 		    }
@@ -488,9 +488,9 @@ public class DBproject{
 		departure_port CHAR(5) NOT NULL,-- PORT CODE --
 		PRIMARY KEY (cnum)*/
 		
-		
+		DateTimeFormatter Date = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 		 
-		integer cnum ;
+		int cnum ;
 		do {
 		    try {
 			System.out.print("\tEnter cnum: $");
@@ -515,8 +515,8 @@ public class DBproject{
 				throw new RuntimeException("input cannot be zero");
 			}
 		    }
-		    catch (Exception excpt) {
-			System.out.println("\tInvalid input");
+		    catch (Exception e) {
+			System.out.println("\tInvalid input: ") + e.getMessage());
 			continue;
 		    }
 		} while (true);
@@ -533,8 +533,8 @@ public class DBproject{
 				throw new RuntimeException("input cannot be zero");
 			}
 		    }
-		    catch (Exception excpt) {
-			System.out.println("\tInvalid input");
+		    catch (Exception e) {
+			System.out.println("\tInvalid input: ") + e.getMessage());
 			continue;
 		    }
 		} while (true);
@@ -548,8 +548,8 @@ public class DBproject{
 				throw new RuntimeException("input has to be positive or zero");
 			}
 		    }
-		    catch (Exception excpt) {
-			System.out.println("\tInvalid input");
+		    catch (Exception e) {
+			System.out.println("\tInvalid input: ") + e.getMessage());
 			continue;
 		    }
 		} while (true);
@@ -563,23 +563,21 @@ public class DBproject{
 				throw new RuntimeException("input has to be positive or zero");
 			}
 		    }
-		    catch (Exception excpt) {
-			System.out.println("\tInvalid input");
+		    catch (Exception e) {
+			System.out.println("\tInvalid input: ") + e.getMessage());
 			continue;
 		    }
 		} while (true);
 		
-		string num_stops;
+		String actual_departure_date ;
 		do {
 		    try {
-			System.out.print("\tEnter num_stops: $");
-			num_stops = Integer.parseInt(in.readLine());
-			if(cnum.length() < 0) {
-				throw new RuntimeException("input has to be positive or zero");
-			}
+			System.out.print("\tEnter actual_departure_date [yyyy-MM-dd HH:mm]: $");
+			actual_departure_date = in.readLine();
+			LocalDate localadd = LocalDate.parse(actual_departure_date, Date);
 		    }
-		    catch (Exception excpt) {
-			System.out.println("\tInvalid input");
+		    catch (Exception e) {
+			System.out.println("\tInvalid input: ") + e.getMessage());
 			continue;
 		    }
 		} while (true);
