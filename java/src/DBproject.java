@@ -869,7 +869,7 @@ public class DBproject{
 		//order by repairs DESC
 		
 		try {
-			String query ="COUNT (*) FROM Repairs GROUP BY Ship ORDER BY Repairs DESC;";			
+			String query ="COUNT (*) \n FROM Repairs \n  GROUP BY Ship \n ORDER BY Repairs DESC;";			
 			esql.executeQueryAndPrintResult(query);
 		}
 		catch(Exception e) {
@@ -903,7 +903,7 @@ public class DBproject{
 		} while (true);
 		
 		try {
-			String query ="COUNT (*) FROM Reservation WHERE status = \'" + input + "\';";			
+			String query ="COUNT (*) \n FROM Reservation \n WHERE status = \'" + input + "\';";			
 			esql.executeQueryAndPrintResult(query);
 		}
 		catch(Exception e) {
