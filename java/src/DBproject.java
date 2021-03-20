@@ -633,7 +633,7 @@ public class DBproject{
 		
 		try{
 		String query = "INSERT INTO TABLE_NAME (cnum, cost, num_sold, num_stops,actual_departure_date,actual_arrival_date,arrival_port, departure_port)"; 
-		query += " VALUES (" + cnum  + ", \'" + cost  + "\', \'" + num_sold + "\', \'" + num_stops + "\', \'" +actual_departure_date";
+		query += " VALUES (" + cnum  + ", \'" + cost  + "\', \'" + num_sold + "\', \'" + num_stops + "\', \'" +actual_departure_date;
 		query += "\', \'" +   actual_arrival_date  + "\', \'" + arrival_port   + "\', \'" + departure_port+"\');"; 
 
 		 esql.executeQuery(query);
