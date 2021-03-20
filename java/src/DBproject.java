@@ -918,5 +918,13 @@ public class DBproject{
 			continue;
 		    }
 		} while (true);
+		
+		try {
+			String query ="COUNT * FROM Reservation WHERE status = \'" + input : "\'";			
+			esql.executeQueryAndPrintResult(query);
+		}
+		catch(Exception e) {
+			System.err.print(e.getMessage());
+		}
 	}
 }
