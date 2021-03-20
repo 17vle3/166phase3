@@ -305,7 +305,6 @@ public class DBproject{
 		seats _SEATS NOT NULL,
 		PRIMARY KEY (id)*/
 		
-		boolean entry = true;
 		
 		int id ;
 		do {
@@ -379,10 +378,10 @@ public class DBproject{
 		    try {
 			System.out.print("\tEnter seats: ");
 			seats = Integer.parseInt(in.readLine());
-			if(make.length() <= 0) {
+			if(seats <= 0) {
 				throw new RuntimeException("input has to be positive");
 			}
-			if(make.length() >= 500) {
+			if(seats>= 500) {
 				throw new RuntimeException("input cannot be greater or equal than 500");
 			}
 			break;
@@ -431,10 +430,10 @@ public class DBproject{
 		    try {
 			System.out.print("\tEnter fullname: ");
 			fullname = in.readLine();
-			if(make.length() < 1) {
+			if(fullname.length() < 1) {
 				throw new RuntimeException("empty input");
 			}
-			else if(make.length() > 128){
+			else if(fullname.length() > 128){
 				throw new RuntimeException("input is too large");
 			}
 			break;
@@ -450,10 +449,10 @@ public class DBproject{
 		    try {
 			System.out.print("\tEnter nationality: ");
 			nationality = in.readLine();
-			if(make.length() < 1) {
+			if(nationality.length() < 1) {
 				throw new RuntimeException("empty input");
 			}
-			else if(make.length() > 24){
+			else if(nationality.length() > 24){
 				throw new RuntimeException("input is too large");
 			}
 			break;
@@ -506,12 +505,12 @@ public class DBproject{
 		int cost;
 		do {
 		    try {
-			System.out.print("\tEnter cnum: $");
-			cnum = Integer.parseInt(in.readLine());
-			if(cnum.length() < 0) {
+			System.out.print("\tEnter cost: $");
+			cost = Integer.parseInt(in.readLine());
+			if(cost < 0) {
 				throw new RuntimeException("input has to be positive");
 			}
-			if(cnum.length() == 0) {
+			if(cost == 0) {
 				throw new RuntimeException("input cannot be zero");
 			}
 		    }
@@ -521,30 +520,13 @@ public class DBproject{
 		    }
 		} while (true);
 		
-		int cost;
-		do {
-		    try {
-			System.out.print("\tEnter cnum: $");
-			cnum = Integer.parseInt(in.readLine());
-			if(cnum.length() < 0) {
-				throw new RuntimeException("input has to be positive");
-			}
-			if(cnum.length() == 0) {
-				throw new RuntimeException("input cannot be zero");
-			}
-		    }
-		    catch (Exception e) {
-			System.out.println("\tInvalid input: " + e.getMessage());
-			continue;
-		    }
-		} while (true);
 		
 		int num_sold;
 		do {
 		    try {
 			System.out.print("\tEnter num_sold: $");
 			num_sold = Integer.parseInt(in.readLine());
-			if(cnum.length() < 0) {
+			if(num_sold < 0) {
 				throw new RuntimeException("input has to be positive or zero");
 			}
 		    }
@@ -559,7 +541,7 @@ public class DBproject{
 		    try {
 			System.out.print("\tEnter num_stops: $");
 			num_stops = Integer.parseInt(in.readLine());
-			if(cnum.length() < 0) {
+			if(num_stops < 0) {
 				throw new RuntimeException("input has to be positive or zero");
 			}
 		    }
