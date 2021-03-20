@@ -306,6 +306,7 @@ public class DBproject{
 		PRIMARY KEY (id)*/
 		String query = "INSERT INTO Ship (ID, make, model,age,seats)"; 	
 		bool entry = true;
+		
 		integer id ;
 		do {
 		    try {
@@ -324,28 +325,79 @@ public class DBproject{
 		    try {
 			System.out.print("\tEnter make: ");
 			make = in.readLine();
+			if(make.length() < 1) {
+				throw new RuntimeException("empty input");
+			}
+			else if(make.length() > 32){
+				throw new RuntimeException("input is too large");
+			}
 			break;
 		    }
 		    catch (Exception excpt) {
-			System.out.println("\tInvalid input");
+			System.out.println("\tInvalid input: ") + e.getMessage());
 			continue;
 		    }
 		} while (true);
 		
-		
+		string model;
+		do {
+		    try {
+			System.out.print("\tEnter model: ");
+			model = in.readLine();
+			if(make.length() < 1) {
+				throw new RuntimeException("empty input");
+			}
+			else if(make.length() > 64){
+				throw new RuntimeException("input is too large");
+			}
+			break;
+		    }
+		    catch (Exception excpt) {
+			System.out.println("\tInvalid input: ") + e.getMessage());
+			continue;
+		    }
+		} while (true);
 		 
-		 String input = in.readLine();
-		 query += input;
+		integer year;
+		do {
+		    try {
+			System.out.print("\tEnter year: ");
+			year = Integer.parseInt(in.readLine());
+			if(make.length() < 0) {
+				throw new RuntimeException("input has to be positive or zero");
+			}
+			break;
+		    }
+		    catch (Exception excpt) {
+			System.out.println("\tInvalid input: ") + e.getMessage());
+			continue;
+		    }
+		} while (true);
 		
-		System.out.print("\tEnter model: ");
-		 String input = in.readLine();
+		integer seats;
+		do {
+		    try {
+			System.out.print("\tEnter seats: ");
+			seats = Integer.parseInt(in.readLine());
+			if(make.length() < 0) {
+				throw new RuntimeException("input has to be positive");
+			}
+			if(make.length() == 0) {
+				throw new RuntimeException("input cannot be zero");
+			}
+			if(make.length() >= 500) {
+				throw new RuntimeException("input cannot be greater or equal than 500");
+			}
+			break;
+		    }
+		    catch (Exception excpt) {
+			System.out.println("\tInvalid input: ") + e.getMessage());
+			continue;
+		    }
+		} while (true);
+
 		
-		System.out.print("\tEnter year: $");
-		 String input = in.readLine();
-		
-		System.out.print("\tEnter seats: $");
-		 String input = in.readLine();
-		//find id by finding list of ship size -1
+
 		
 		query+=");";
 
