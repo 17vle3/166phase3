@@ -358,12 +358,12 @@ public class DBproject{
 		    }
 		} while (true);
 		 
-		int year;
+		int age;
 		do {
 		    try {
-			System.out.print("\tEnter year: ");
-			year = Integer.parseInt(in.readLine());
-			if(make.length() < 0) {
+			System.out.print("\tEnter age: ");
+			age = Integer.parseInt(in.readLine());
+			if(age < 0) {
 				throw new RuntimeException("input has to be positive or zero");
 			}
 			break;
