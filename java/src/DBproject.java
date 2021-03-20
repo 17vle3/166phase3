@@ -412,7 +412,7 @@ public class DBproject{
 		nationality CHAR(24),
 		PRIMARY KEY (id)*/
 		
-		integer id ;
+		int id ;
 		do {
 		    try {
 			System.out.print("\tEnter ID: $");
@@ -425,7 +425,7 @@ public class DBproject{
 		    }
 		} while (true);
 		
-		string fullname;
+		String fullname;
 		do {
 		    try {
 			System.out.print("\tEnter fullname: ");
@@ -444,7 +444,7 @@ public class DBproject{
 		    }
 		} while (true);
 		
-		string nationality;
+		String nationality;
 		do {
 		    try {
 			System.out.print("\tEnter nationality: ");
@@ -810,9 +810,6 @@ public class DBproject{
 		//get seats from ship
 		//get date from cruise
 		//find num sold
-		int cnum;
-		String departure_date;
-		String query;
 
 		DateTimeFormatter Date = DateTimeFormatter.ofPattern("yyyy-dd-MM HH:mm");
 
