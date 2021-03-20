@@ -420,11 +420,43 @@ public class DBproject{
 		 String input = in.readLine();
 		 query += input;
 		
-		System.out.print("\tEnter fullname: $");
-		 String input = in.readLine();
+		string fullname;
+		do {
+		    try {
+			System.out.print("\tEnter fullname: ");
+			fullname = in.readLine();
+			if(make.length() < 1) {
+				throw new RuntimeException("empty input");
+			}
+			else if(make.length() > 128){
+				throw new RuntimeException("input is too large");
+			}
+			break;
+		    }
+		    catch (Exception excpt) {
+			System.out.println("\tInvalid input: ") + e.getMessage());
+			continue;
+		    }
+		} while (true);
 		
-		System.out.print("\tEnter nationality: $");
-		 String input = in.readLine();
+		string nationality;
+		do {
+		    try {
+			System.out.print("\tEnter nationality: ");
+			nationality = in.readLine();
+			if(make.length() < 1) {
+				throw new RuntimeException("empty input");
+			}
+			else if(make.length() > 24){
+				throw new RuntimeException("input is too large");
+			}
+			break;
+		    }
+		    catch (Exception excpt) {
+			System.out.println("\tInvalid input: ") + e.getMessage());
+			continue;
+		    }
+		} while (true);
 		
 		
 		query+=");";
@@ -456,8 +488,24 @@ public class DBproject{
 		 String input = in.readLine();
 		 query += input;
 		
-		System.out.print("\tEnter fullname: $");
-		 String input = in.readLine();
+		int cost;
+		do {
+		    try {
+			System.out.print("\tEnter fullname: ");
+			fullname = in.readLine();
+			if(make.length() < 1) {
+				throw new RuntimeException("empty input");
+			}
+			else if(make.length() > 128){
+				throw new RuntimeException("input is too large");
+			}
+			break;
+		    }
+		    catch (Exception excpt) {
+			System.out.println("\tInvalid input: ") + e.getMessage());
+			continue;
+		    }
+		} while (true);
 		
 		System.out.print("\tEnter nationality: $");
 		 String input = in.readLine();
