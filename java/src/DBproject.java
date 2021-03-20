@@ -869,7 +869,7 @@ public class DBproject{
 		//order by repairs DESC
 		
 		try {
-			String query ="SELECT COUNT(*) \n FROM Repairs \n  GROUP BY ship_id \n ORDER BY repairs.* DESC;";			
+			String query ="SELECT COUNT(*) \n FROM Repairs R ,Ships S \n WHERE R.ship_id = S.id \n  GROUP BY Repairs.ship_id,  \n ORDER BY Repairs.ship_id DESC;";			
 			esql.executeQueryAndPrintResult(query);
 		}
 		catch(Exception e) {
