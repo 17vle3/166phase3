@@ -842,6 +842,7 @@ public class DBproject{
 			System.out.print("\tEnter departure_date [yyyy-MM-dd HH:mm]: $");
 			actual_departure_date = in.readLine();
 			LocalDate localadd = LocalDate.parse(actual_departure_date, Date);
+			    break;
 		    }
 		    catch (Exception e) {
 			System.out.println("\tInvalid input: " + e.getMessage());
