@@ -891,7 +891,7 @@ public class DBproject{
 		    try {
 			System.out.print("\tEnter status: ");
 			input = in.readLine();
-			if( !(input == "W") && !(input == "C") && !(input == "R") ) {
+			if(!input.equals("W") && !input.equals("C") && !input.equals("R")){
 				throw new RuntimeException("");
 			}
 			break;
@@ -903,7 +903,7 @@ public class DBproject{
 		} while (true);
 		
 		try {
-			String query ="SELECT COUNT (*) \n FROM Reservation \n WHERE status = \'" + input + "\';";			
+			String query ="SELECT COUNT(*) FROM Reservation WHERE status = '" + input + "';";			
 			esql.executeQueryAndPrintResult(query);
 		}
 		catch(Exception e) {
