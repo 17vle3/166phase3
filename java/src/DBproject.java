@@ -304,10 +304,10 @@ public class DBproject{
 		age _YEAR_1970 NOT NULL,
 		seats _SEATS NOT NULL,
 		PRIMARY KEY (id)*/
-		String query = "INSERT INTO Ship (ID, make, model,age,seats)"; 	
-		bool entry = true;
 		
-		integer id ;
+		boolean entry = true;
+		
+		int id ;
 		do {
 		    try {
 			System.out.print("\tEnter ID: $");
@@ -320,7 +320,7 @@ public class DBproject{
 		    }
 		} while (true);
 		
-		string make;
+		String make;
 		do {
 		    try {
 			System.out.print("\tEnter make: ");
@@ -339,7 +339,7 @@ public class DBproject{
 		    }
 		} while (true);
 		
-		string model;
+		String model;
 		do {
 		    try {
 			System.out.print("\tEnter model: ");
@@ -358,7 +358,7 @@ public class DBproject{
 		    }
 		} while (true);
 		 
-		integer year;
+		int year;
 		do {
 		    try {
 			System.out.print("\tEnter year: ");
@@ -374,7 +374,7 @@ public class DBproject{
 		    }
 		} while (true);
 		
-		integer seats;
+		int seats;
 		do {
 		    try {
 			System.out.print("\tEnter seats: ");
@@ -399,13 +399,14 @@ public class DBproject{
 		
 
 		
-		query+=");";
-
-		 int rowCount = esql.executeQuery(query);
-		 System.out.println ("total row(s): " + rowCount);
-	      }catch(Exception e){
+		
+		try{
+			String query = "INSERT INTO Ship (ID, make, model,age,seats)"; 	
+			query += "VALUES (" + id + ", \'" + make + "\', \'" + model + "\', \'" +  age + "\', \'" + seats +"\');";"; 
+		 esql.executeQuery(query);
+		}catch(Exception e){
 		 System.err.println (e.getMessage());
-	      }
+		}
 		
 	}
 
@@ -416,9 +417,18 @@ public class DBproject{
 		PRIMARY KEY (id)*/
 		String query = "INSERT INTO TABLE_NAME (ID, fullname, nationality)"; 
 		query+="VALUES (";
-		 System.out.print("\tEnter ID: $");
-		 String input = in.readLine();
-		 query += input;
+		integer id ;
+		do {
+		    try {
+			System.out.print("\tEnter ID: $");
+			id = Integer.parseInt(in.readLine());
+			break;
+		    }
+		    catch (Exception excpt) {
+			System.out.println("\tInvalid input");
+			continue;
+		    }
+		} while (true);
 		
 		string fullname;
 		do {
@@ -484,31 +494,100 @@ public class DBproject{
 		
 		String query = "INSERT INTO TABLE_NAME (cnum, cost, num_sold, num_stops,actual_departure_date,actual_arrival_date,arrival_port, departure_port)"; 
 		query+="VALUES (";
-		 System.out.print("\tEnter ID: $");
-		 String input = in.readLine();
-		 query += input;
-		
-		int cost;
+		 
+		integer cnum ;
 		do {
 		    try {
-			System.out.print("\tEnter fullname: ");
-			fullname = in.readLine();
-			if(make.length() < 1) {
-				throw new RuntimeException("empty input");
-			}
-			else if(make.length() > 128){
-				throw new RuntimeException("input is too large");
-			}
+			System.out.print("\tEnter cnum: $");
+			cnum = Integer.parseInt(in.readLine());
 			break;
 		    }
 		    catch (Exception excpt) {
-			System.out.println("\tInvalid input: ") + e.getMessage());
+			System.out.println("\tInvalid input");
 			continue;
 		    }
 		} while (true);
 		
-		System.out.print("\tEnter nationality: $");
-		 String input = in.readLine();
+		int cost;
+		do {
+		    try {
+			System.out.print("\tEnter cnum: $");
+			cnum = Integer.parseInt(in.readLine());
+			if(cnum.length() < 0) {
+				throw new RuntimeException("input has to be positive");
+			}
+			if(cnum.length() == 0) {
+				throw new RuntimeException("input cannot be zero");
+			}
+		    }
+		    catch (Exception excpt) {
+			System.out.println("\tInvalid input");
+			continue;
+		    }
+		} while (true);
+		
+		int cost;
+		do {
+		    try {
+			System.out.print("\tEnter cnum: $");
+			cnum = Integer.parseInt(in.readLine());
+			if(cnum.length() < 0) {
+				throw new RuntimeException("input has to be positive");
+			}
+			if(cnum.length() == 0) {
+				throw new RuntimeException("input cannot be zero");
+			}
+		    }
+		    catch (Exception excpt) {
+			System.out.println("\tInvalid input");
+			continue;
+		    }
+		} while (true);
+		
+		int num_sold;
+		do {
+		    try {
+			System.out.print("\tEnter num_sold: $");
+			num_sold = Integer.parseInt(in.readLine());
+			if(cnum.length() < 0) {
+				throw new RuntimeException("input has to be positive or zero");
+			}
+		    }
+		    catch (Exception excpt) {
+			System.out.println("\tInvalid input");
+			continue;
+		    }
+		} while (true);
+		
+		int num_stops;
+		do {
+		    try {
+			System.out.print("\tEnter num_stops: $");
+			num_stops = Integer.parseInt(in.readLine());
+			if(cnum.length() < 0) {
+				throw new RuntimeException("input has to be positive or zero");
+			}
+		    }
+		    catch (Exception excpt) {
+			System.out.println("\tInvalid input");
+			continue;
+		    }
+		} while (true);
+		
+		string num_stops;
+		do {
+		    try {
+			System.out.print("\tEnter num_stops: $");
+			num_stops = Integer.parseInt(in.readLine());
+			if(cnum.length() < 0) {
+				throw new RuntimeException("input has to be positive or zero");
+			}
+		    }
+		    catch (Exception excpt) {
+			System.out.println("\tInvalid input");
+			continue;
+		    }
+		} while (true);
 		
 		
 		query+=");";
