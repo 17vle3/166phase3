@@ -516,13 +516,13 @@ public class DBproject{
 			if(cost == 0) {
 				throw new RuntimeException("input cannot be zero");
 			}
+			    break;
 		    }
 		    catch (Exception e) {
 			System.out.println("\tInvalid input: " + e.getMessage());
 			continue;
 		    }
 		} while (true);
-		
 		
 		int num_sold;
 		do {
@@ -532,6 +532,7 @@ public class DBproject{
 			if(num_sold < 0) {
 				throw new RuntimeException("input has to be positive or zero");
 			}
+			    break;
 		    }
 		    catch (Exception e) {
 			System.out.println("\tInvalid input: " + e.getMessage());
@@ -547,6 +548,7 @@ public class DBproject{
 			if(num_stops < 0) {
 				throw new RuntimeException("input has to be positive or zero");
 			}
+			    break;
 		    }
 		    catch (Exception e) {
 			System.out.println("\tInvalid input: " + e.getMessage());
@@ -560,6 +562,7 @@ public class DBproject{
 			System.out.print("\tEnter actual_departure_date [yyyy-MM-dd HH:mm]: $");
 			actual_departure_date = in.readLine();
 			LocalDate localadd = LocalDate.parse(actual_departure_date, Date);
+			    break;
 		    }
 		    catch (Exception e) {
 			System.out.println("\tInvalid input: " + e.getMessage());
@@ -573,6 +576,7 @@ public class DBproject{
 			System.out.print("\tEnter actual_arrival_date  [yyyy-MM-dd HH:mm]: $");
 			actual_arrival_date  = in.readLine();
 			LocalDate localadd = LocalDate.parse(actual_arrival_date , Date);
+			    break;
 		    }
 		    catch (Exception e) {
 			System.out.println("\tInvalid input: " + e.getMessage());
@@ -591,6 +595,7 @@ public class DBproject{
 			else if(arrival_port.length() > 5){
 				throw new RuntimeException("input is too large");
 			}
+			    break;
 		    }
 		    catch (Exception e) {
 			System.out.println("\tInvalid input: " + e.getMessage());
@@ -609,6 +614,7 @@ public class DBproject{
 			else if(departure_port .length() > 5){
 				throw new RuntimeException("input is too large");
 			}
+			    break;
 		    }
 		    catch (Exception e) {
 			System.out.println("\tInvalid input: " + e.getMessage());
@@ -621,6 +627,7 @@ public class DBproject{
 		String query = "INSERT INTO TABLE_NAME (cnum, cost, num_sold, num_stops,actual_departure_date,actual_arrival_date,arrival_port, departure_port)"; 
 		query += " VALUES (" + cnum  + ", \'" + cost  + "\', \'" + num_sold + "\', \'" + num_stops + "\', \'" +actual_departure_date;
 		query += "\', \'" +   actual_arrival_date  + "\', \'" + arrival_port   + "\', \'" + departure_port+"\');"; 		 esql.executeQuery(query);
+			
 
 	      }catch(Exception e){
 		 System.err.println (e.getMessage());
