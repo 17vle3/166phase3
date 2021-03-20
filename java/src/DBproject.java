@@ -868,7 +868,7 @@ public class DBproject{
 		} while (true);
 
 		try {
-			query = "SELECT T1.cnum, T1.seats-T2.num_sold FROM (SELECT C1.cnum, S1.seats FROM Cruise C1, CruiseInfo CI1, Ship S1 WHERE CI1.ciid = C1.cnum AND CI1.ship_id = S1.id) AS T1, (SELECT C2.cnum, C2.num_sold FROM Cruise C2 GROUP BY C2.cnum) AS T2 WHERE T1.cnum = T2.cnum AND T1.cnum = " + cnum + ";";
+			String query = "SELECT T1.cnum, T1.seats-T2.num_sold FROM (SELECT C1.cnum, S1.seats FROM Cruise C1, CruiseInfo CI1, Ship S1 WHERE CI1.ciid = C1.cnum AND CI1.ship_id = S1.id) AS T1, (SELECT C2.cnum, C2.num_sold FROM Cruise C2 GROUP BY C2.cnum) AS T2 WHERE T1.cnum = T2.cnum AND T1.cnum = " + cnum + ";";
 			esql.executeQueryAndPrintResult(query);
 		}
 		catch(Exception e) {
@@ -884,11 +884,15 @@ public class DBproject{
 		//from repairs
 		//group by ships
 		//order by repairs DESC
-		String query ="COUNT * ";
-		query +="FROM Repairs ";
-		query += "GROUP BY Ship ";
-		query += "ORDER BY Repairs DESC";
-		int rowCount = esql.executeQuery(query);
+		
+		try {
+			String query ="COUNT * FROM Repairs GROUP BY Ship ORDER BY Repairs DESC";			
+			esql.executeQueryAndPrintResult(query);
+		}
+		catch(Exception e) {
+			System.err.print(e.getMessage());
+		}
+		
 	}
 
 	
