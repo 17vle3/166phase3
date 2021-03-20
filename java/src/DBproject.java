@@ -379,11 +379,8 @@ public class DBproject{
 		    try {
 			System.out.print("\tEnter seats: ");
 			seats = Integer.parseInt(in.readLine());
-			if(make.length() < 0) {
+			if(make.length() <= 0) {
 				throw new RuntimeException("input has to be positive");
-			}
-			if(make.length() == 0) {
-				throw new RuntimeException("input cannot be zero");
 			}
 			if(make.length() >= 500) {
 				throw new RuntimeException("input cannot be greater or equal than 500");
@@ -402,7 +399,7 @@ public class DBproject{
 		
 		try{
 			String query = "INSERT INTO Ship (ID, make, model,age,seats)"; 	
-			query += "VALUES (" + id + ", \'" + make + "\', \'" + model + "\', \'" +  age + "\', \'" + seats +"\');";"; 
+			query += "VALUES (" + id + ", \'" + make + "\', \'" + model + "\', \'" +  age + "\', \'" + seats +"\');"; 
 		 esql.executeQuery(query);
 		}catch(Exception e){
 		 System.err.println (e.getMessage());
@@ -415,8 +412,7 @@ public class DBproject{
 		fullname CHAR(128),
 		nationality CHAR(24),
 		PRIMARY KEY (id)*/
-		String query = "INSERT INTO TABLE_NAME (ID, fullname, nationality)"; 
-		query+="VALUES (";
+		
 		integer id ;
 		do {
 		    try {
@@ -469,10 +465,10 @@ public class DBproject{
 		} while (true);
 		
 		
-		query+=");";
+		try{
+			String query = "INSERT INTO TABLE_NAME (ID, fullname, nationality) VALUES (" + id + ", \'" + fullname + "\', \'" + nationality +"\');"; 
+		 esql.executeQuery(query);
 
-		 int rowCount = esql.executeQuery(query);
-		 System.out.println ("total row(s): " + rowCount);
 	      }catch(Exception e){
 		 System.err.println (e.getMessage());
 	      }
