@@ -639,7 +639,7 @@ public class DBproject{
 
 	public static void BookCruise(DBproject esql) {//4
 		int ccid, cid;
-		int rnum;
+		int rnum=0;
 		String  userInput, query, status;
 		
 
