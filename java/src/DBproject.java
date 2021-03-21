@@ -638,18 +638,6 @@ public class DBproject{
 
 
 	public static void BookCruise(DBproject esql) {//4
-		// Given a customer and a Cruise that he/she wants to book, add a reservation to the DB
-		//get customer id
-		//get cruise num
-		/*rnum INTEGER NOT NULL,
-	ccid INTEGER NOT NULL,
-	cid INTEGER NOT NULL,
-	status _STATUS,
-	PRIMARY KEY (rnum),
-	FOREIGN KEY (ccid) REFERENCES Customer(id),
-	FOREIGN KEY (cid) REFERENCES Cruise(cnum))*/
-
-		
 		int ccid, cid;
 		String  userInput, query;
 		
@@ -686,33 +674,36 @@ public class DBproject{
 						userInput = in.readLine();
 						if(userInput.equals("yes") || userInput.equals("y")) {
 							int rnum;
-							do {
-							    try {
-								System.out.print("\tEnter rnum: $");
-								rnum = Integer.parseInt(in.readLine());
-								    break;
-							    }
-							    catch (Exception e) {
-								System.out.println("\tInvalid input: " + e.getMessage());
-								continue;
-							    }
-							} while (true);
+							try {
+								query = "SELECT R.rnum FROM Reservation R;";
+								List <List<String>> Reservation_num  = esql.executeQueryAndReturnResult(query);
+								rnum = Reservation_num.size() + 1;
+							}
+							catch(Exception e) {
+								System.err.println(e.getMessage());
+							}
 							
 							String status;
-							do {
-							    try {
-								System.out.print("\tEnter status: ");
-								status = in.readLine();
-								if(!status.equals("W") && !status.equals("C") && !status.equals("R")){
-									throw new RuntimeException("");
+							
+							
+							try {
+								query = "SELECT T1.cnum, T1.seats-T2.num_sold FROM (SELECT C1.cnum, S1.seats FROM Cruise C1, CruiseInfo CI1, Ship S1 WHERE CI1.ciid = C1.cnum AND CI1.ship_id = S1.id) AS T1, (SELECT C2.cnum, C2.num_sold FROM Cruise C2 GROUP BY C2.cnum) AS T2 WHERE T1.cnum = T2.cnum AND T1.cnum = " + cid + ";";
+								if(esql.executeQueryAndPrintResult(query)  == 0) {
+									status = "W";
+									System.out.print("There are no seats open on this cruise. You have been waitlisted.");
 								}
-								break;
-							    }
-							    catch (Exception e) {
-								System.out.println("\tInvalid input. Please input a \"W\" , \"C\" or \"R\". " + e.getMessage());
+								else {
+									status = "C";
+									System.out.print("Your reservation has been confirmed");
+								}
+								
+									
+							}
+							catch(Exception e) {
+								System.err.println(e.getMessage());
 								continue;
-							    }
-							} while (true);
+							}
+								
 							
 							
 								
