@@ -685,32 +685,36 @@ public class DBproject{
 					try {
 						userInput = in.readLine();
 						if(userInput.equals("yes") || userInput.equals("y")) {
-							try {
-								query = "SELECT R.rnum FROM Reservation R;";
-								List <List<String>> Reservation_num  = esql.executeQueryAndReturnResult(query);
-								rnum = Reservation_num.size() + 1;
-							}
-							catch(Exception e) {
-								System.err.println(e.getMessage());
-							}
-							
-							try {
-								query = "SELECT T1.cnum, T1.seats-T2.num_sold FROM (SELECT C1.cnum, S1.seats FROM Cruise C1, CruiseInfo CI1, Ship S1 WHERE CI1.ciid = C1.cnum AND CI1.ship_id = S1.id) AS T1, (SELECT C2.cnum, C2.num_sold FROM Cruise C2 GROUP BY C2.cnum) AS T2 WHERE T1.cnum = T2.cnum AND T1.cnum = " + cid + ";";
-								if(esql.executeQueryAndPrintResult(query)  == 0) {
-									status = "W";
-									System.out.print("There are no seats open on this cruise. You have been waitlisted.");
-								}
-								else {
-									status = "C";
-									System.out.print("Your reservation has been confirmed");
-								}
-								
-									
-							}
-							catch(Exception e) {
-								System.err.println(e.getMessage());
+							int rnum;
+							do {
+							    try {
+								System.out.print("\tEnter rnum: $");
+								rnum = Integer.parseInt(in.readLine());
+								    break;
+							    }
+							    catch (Exception e) {
+								System.out.println("\tInvalid input: " + e.getMessage());
 								continue;
-							}
+							    }
+							} while (true);
+							
+							String status;
+							do {
+							    try {
+								System.out.print("\tEnter status: ");
+								status = in.readLine();
+								if(!input.equals("W") && !input.equals("C") && !input.equals("R")){
+									throw new RuntimeException("");
+								}
+								break;
+							    }
+							    catch (Exception e) {
+								System.out.println("\tInvalid input. Please input a \"W\" , \"C\" or \"R\". " + e.getMessage());
+								continue;
+							    }
+							} while (true);
+							
+							
 								
 							try {
 								query = "INSERT INTO Reservation (rnum, ccid, cid, status) VALUES (" + rnum + ", " + ccid + ", " + cid + ", " + status + ");";
@@ -721,7 +725,7 @@ public class DBproject{
 								
 							}
 							catch(Exception e) {
-								System.err.println("hello" + e.getMessage());
+								System.err.println("Invalid input" + e.getMessage());
 								continue;
 							}
 							break;
