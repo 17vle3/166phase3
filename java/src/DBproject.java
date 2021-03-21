@@ -468,7 +468,7 @@ public class DBproject{
 		
 		
 		try{
-			String query = "INSERT INTO TABLE_NAME (ID, fullname, nationality) VALUES (" + id + ", \'" + fullname + "\', \'" + nationality +"\');"; 
+			String query = "INSERT INTO Captain (ID, fullname, nationality) VALUES (" + id + ", \'" + fullname + "\', \'" + nationality +"\');"; 
 		 esql.executeUpdate(query);
 
 	      }catch(Exception e){
@@ -624,7 +624,7 @@ public class DBproject{
 		
 		
 		try{
-		String query = "INSERT INTO TABLE_NAME (cnum, cost, num_sold, num_stops,actual_departure_date,actual_arrival_date,arrival_port, departure_port)"; 
+		String query = "INSERT INTO Cruise (cnum, cost, num_sold, num_stops,actual_departure_date,actual_arrival_date,arrival_port, departure_port)"; 
 		query += " VALUES (" + cnum  + ", \'" + cost  + "\', \'" + num_sold + "\', \'" + num_stops + "\', \'" +actual_departure_date;
 		query += "\', \'" +   actual_arrival_date  + "\', \'" + arrival_port   + "\', \'" + departure_port+"\');"; 		 esql.executeUpdate(query);
 			
