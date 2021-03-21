@@ -688,7 +688,7 @@ public class DBproject{
 							
 							
 							try {
-								query = "SELECT T1.cnum, T1.seats-T2.num_sold FROM (SELECT C1.cnum, S1.seats FROM Cruise C1, CruiseInfo CI1, Ship S1 WHERE CI1.ciid = C1.cnum AND CI1.ship_id = S1.id) AS T1, (SELECT C2.cnum, C2.num_sold FROM Cruise C2 GROUP BY C2.cnum) AS T2 WHERE T1.cnum = T2.cnum AND T1.cnum = " + cid + ";";
+								query = "SELECT T1.cnum, T1.seats-T2.num_sold as availseats FROM (SELECT C1.cnum, S1.seats FROM Cruise C1, CruiseInfo CI1, Ship S1 WHERE CI1.ciid = C1.cnum AND CI1.ship_id = S1.id) AS T1, (SELECT C2.cnum, C2.num_sold FROM Cruise C2 GROUP BY C2.cnum) AS T2 WHERE T1.cnum = T2.cnum AND T1.cnum = " + cid + ";";
 								if(esql.executeQueryAndPrintResult(query)  == 0) {
 									status = "W";
 									System.out.print("There are no seats open on this cruise. You have been waitlisted.");
