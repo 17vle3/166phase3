@@ -852,7 +852,7 @@ public class DBproject{
 
 		try {
 			//String query = "SELECT T1.seats-T2.num_sold FROM Ship S, Cruise C, (SELECT C1.cnum, S1.seats FROM Cruise C1, CruiseInfo CI1, Ship S1 WHERE CI1.ciid = C1.cnum AND CI1.ship_id = S1.id) AS T1, (SELECT C2.cnum, C2.num_sold FROM Cruise C2 GROUP BY C2.cnum) AS T2 WHERE C.cnum = T1.cnum AND T1.cnum = T2.cnum AND T1.cnum = " + cnum + " AND C.actual_departure_date  = " +actual_departure_date + ";";
-			String query = "SELECT DISTINCT T1.seats-T2.num_sold FROM Ship S, (SELECT C1.cnum, S1.seats FROM Cruise C1, CruiseInfo CI1, Ship S1 WHERE CI1.ciid = C1.cnum AND CI1.ship_id = S1.id) AS T1, (SELECT C2.cnum, C2.num_sold FROM Cruise C2 GROUP BY C2.cnum) AS T2 WHERE  T1.cnum = T2.cnum AND T1.cnum = " + cnum + " ;";
+			String query = "SELECT DISTINCT T1.seats-T2.num_sold AS availSeats FROM Ship S, (SELECT C1.cnum, S1.seats FROM Cruise C1, CruiseInfo CI1, Ship S1 WHERE CI1.ciid = C1.cnum AND CI1.ship_id = S1.id) AS T1, (SELECT C2.cnum, C2.num_sold FROM Cruise C2 GROUP BY C2.cnum) AS T2 WHERE  T1.cnum = T2.cnum AND T1.cnum = " + cnum + " ;";
 
 			esql.executeQueryAndPrintResult(query);
 		}
