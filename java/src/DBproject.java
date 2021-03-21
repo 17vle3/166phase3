@@ -639,7 +639,8 @@ public class DBproject{
 
 	public static void BookCruise(DBproject esql) {//4
 		int ccid, cid;
-		String  userInput, query;
+		int rnum;
+		String  userInput, query, status;
 		
 
 		do {
@@ -673,7 +674,7 @@ public class DBproject{
 					try {
 						userInput = in.readLine();
 						if(userInput.equals("yes") || userInput.equals("y")) {
-							int rnum;
+							
 							try {
 								query = "SELECT R.rnum FROM Reservation R;";
 								List <List<String>> Reservation_num  = esql.executeQueryAndReturnResult(query);
@@ -683,7 +684,7 @@ public class DBproject{
 								System.err.println(e.getMessage());
 							}
 							
-							String status;
+							
 							
 							
 							try {
