@@ -402,7 +402,7 @@ public class DBproject{
 		try{
 			String query = "INSERT INTO Ship (ID, make, model,age,seats)"; 	
 			query += "VALUES (" + id + ", \'" + make + "\', \'" + model + "\', \'" +  age + "\', \'" + seats +"\');"; 
-		 esql.executeQuery(query);
+		 esql.executeUpdate(query);
 		}catch(Exception e){
 		 System.err.println (e.getMessage());
 		}
@@ -469,7 +469,7 @@ public class DBproject{
 		
 		try{
 			String query = "INSERT INTO TABLE_NAME (ID, fullname, nationality) VALUES (" + id + ", \'" + fullname + "\', \'" + nationality +"\');"; 
-		 esql.executeQuery(query);
+		 esql.executeUpdate(query);
 
 	      }catch(Exception e){
 		 System.err.println (e.getMessage());
@@ -626,7 +626,7 @@ public class DBproject{
 		try{
 		String query = "INSERT INTO TABLE_NAME (cnum, cost, num_sold, num_stops,actual_departure_date,actual_arrival_date,arrival_port, departure_port)"; 
 		query += " VALUES (" + cnum  + ", \'" + cost  + "\', \'" + num_sold + "\', \'" + num_stops + "\', \'" +actual_departure_date;
-		query += "\', \'" +   actual_arrival_date  + "\', \'" + arrival_port   + "\', \'" + departure_port+"\');"; 		 esql.executeQuery(query);
+		query += "\', \'" +   actual_arrival_date  + "\', \'" + arrival_port   + "\', \'" + departure_port+"\');"; 		 esql.executeUpdate(query);
 			
 
 	      }catch(Exception e){
