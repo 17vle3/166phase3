@@ -654,8 +654,8 @@ public class DBproject{
 		String  userInput, query;
 		String status;
 
-		while(true) {
-			System.out.print("Input your Customer ID (ccid): ");
+		do {
+			System.out.print("\tEnter Customer ID : ");
 			try {
 				ccid = Integer.parseInt(in.readLine());
 				break;
@@ -664,10 +664,10 @@ public class DBproject{
 				System.out.println("Invalid input. Exception: " + e.getMessage());
 				continue;
 			}
-		}
+		}while(true);
 
-		while(true) {
-			System.out.print("Input Cruise ID(cid) of the Cruise you would like to book: ");
+		do{
+			System.out.print("\tEnter Cruise ID: ");
 			try {
 				cid = Integer.parseInt(in.readLine());
 				break;
@@ -675,13 +675,13 @@ public class DBproject{
 			catch(Exception e) {
 				System.out.println("Invalid input. Exception: " + e.getMessage());
 			}
-		}
+		}while(true) ;
 
 		try {
 			query = "SELECT status FROM Reservation WHERE ccid = " + ccid + "AND cid = " + cid + ";";
 			if(esql.executeQueryAndPrintResult(query) == 0) {
 				while(true) {
-					System.out.println("Your reservation is not in our database. Would you like to book a cruise? input 'yes' or 'no': ");
+					System.out.println("Your reservation is not in our database. Do you want to book a cruise? input 'yes' or 'no': ");
 					try {
 						userInput = in.readLine();
 						if(userInput.equals("yes") || userInput.equals("y")) {
