@@ -717,7 +717,7 @@ public class DBproject{
 							
 								
 							try {
-								query = "INSERT INTO Reservation (rnum, ccid, cid, status) VALUES (" + rnum + ", " + ccid + ", " + cid + ", " + status + ");";
+								query = "INSERT INTO Reservation (rnum, ccid, cid, status) VALUES (" + rnum + ", " + ccid + ", " + cid + ", '" + status + "');";
                                     				esql.executeUpdate(query);
 								
 								//query = "SELECT R.rnum, R.ccid, R.cid, R.status FROM Reservation R;";
