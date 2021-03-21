@@ -757,6 +757,67 @@ public class DBproject{
 					break;
 				}
 			}
+			else { 
+				while(true) {
+					 try {
+                            			System.out.println("Reservation found.");
+									
+						query = "SELECT status FROM Reservation WHERE ccid = " + ccid + "AND cid = " + cid + ";";
+						status = esql.executeQueryAndReturnResult(query).get(0).get(0);
+						//if(status == "R") {
+						//	System.out.print("You have reserved this cruise, would you like to confirm your reservation? Input yes or no.");
+						//}
+						//else {
+							System.out.print("Status: " + status + "\n");
+						//	break;
+						//			
+
+						System.out.print("Would you like to change the status of your reservation. Input yes or no.");
+                            			userInput = in.readLine();
+                            			if(userInput.equals("yes") || userInput.equals("y")) {
+                                			while (true) {
+                                    				System.out.print("Input new Reservation Status(W, C, or R): " );
+                                    				try {
+                                        				status = in.readLine();
+                                        				if(!status.equals("W")  && !status.equals("C") && !status.equals("R")) {
+                                            					throw new RuntimeException("Your input is invalid! Status can only be W, C, or R");
+                                        				}
+                                        				break;
+                                    				}
+                                    				catch(Exception e) {
+                                        				System.out.println("Input is invalid. Exception: " + e.getMessage());
+                                       					 continue;
+                                    				}
+							}
+                                			
+
+                                			try {
+                                    				query = "UPDATE Reservation SET status = \'" + status + "\' WHERE ccid = " + ccid + " AND cid = " + cid + ";";
+                                    				esql.executeQuery(query);
+
+								//query = "SELECT R.rnum, R.ccid, R.cid, R.status FROM Reservation R WHERE R.ccid = " + ccid + ";";
+								//esql.executeQueryAndReturnResult(query);
+                                			}
+                               	 			catch (Exception e) {
+                                    				System.err.println(e.getMessage());
+                                			}
+						}
+						
+                            			else if (userInput.equals("no") || userInput.equals("n")) {
+							continue;
+						}
+						else {
+                                			throw new RuntimeException("Invalid input. Input must be 'yes', 'y', 'no', or 'n'.");
+                            			}
+                            			break;
+                        		}
+                        		catch(Exception e){
+                            			System.out.println("Your input is invalid! Your exception is: " + e.getMessage());
+                            			continue;
+                        		}
+                    		}
+                	}
+            
             }
             catch(Exception e) {
                 System.err.println(e.getMessage());
