@@ -649,10 +649,10 @@ public class DBproject{
 	FOREIGN KEY (ccid) REFERENCES Customer(id),
 	FOREIGN KEY (cid) REFERENCES Cruise(cnum))*/
 
-		int rnum = 0;
+		
 		int ccid, cid;
 		String  userInput, query;
-		String status;
+		
 
 		do {
 			System.out.print("\tEnter Customer ID : ");
