@@ -310,6 +310,7 @@ public class DBproject{
 		
 		
 		int id ;
+		//get input for ID and put it into int id
 		do {
 		    try {
 			System.out.print("\tEnter ID: $");
@@ -323,6 +324,7 @@ public class DBproject{
 		} while (true);
 		
 		String make;
+		//get input for make and put it into String make
 		do {
 		    try {
 			System.out.print("\tEnter make: ");
@@ -342,6 +344,7 @@ public class DBproject{
 		} while (true);
 		
 		String model;
+		//get input for model and put it into String model
 		do {
 		    try {
 			System.out.print("\tEnter model: ");
@@ -361,6 +364,7 @@ public class DBproject{
 		} while (true);
 		 
 		int age;
+		//get input for age and put it into int age
 		do {
 		    try {
 			System.out.print("\tEnter age: ");
@@ -377,6 +381,7 @@ public class DBproject{
 		} while (true);
 		
 		int seats;
+		//get input for seats and put it into int seats
 		do {
 		    try {
 			System.out.print("\tEnter seats: ");
@@ -400,6 +405,7 @@ public class DBproject{
 		
 		
 		try{
+			//input data we collected into Ship table
 			String query = "INSERT INTO Ship (ID, make, model,age,seats)"; 	
 			query += "VALUES (" + id + ", \'" + make + "\', \'" + model + "\', \'" +  age + "\', \'" + seats +"\');"; 
 		 esql.executeUpdate(query);
@@ -416,6 +422,7 @@ public class DBproject{
 		PRIMARY KEY (id)*/
 		
 		int id ;
+		//get input for ID and put it into int id
 		do {
 		    try {
 			System.out.print("\tEnter ID: $");
@@ -429,6 +436,7 @@ public class DBproject{
 		} while (true);
 		
 		String fullname;
+		//get input for fullname and put it into String fullname
 		do {
 		    try {
 			System.out.print("\tEnter fullname: ");
@@ -448,6 +456,7 @@ public class DBproject{
 		} while (true);
 		
 		String nationality;
+		//get input for nationality and put it into String nationality
 		do {
 		    try {
 			System.out.print("\tEnter nationality: ");
@@ -468,6 +477,7 @@ public class DBproject{
 		
 		
 		try{
+			//input a new captain into the Captain table
 			String query = "INSERT INTO Captain (ID, fullname, nationality) VALUES (" + id + ", \'" + fullname + "\', \'" + nationality +"\');"; 
 		 esql.executeUpdate(query);
 
@@ -490,9 +500,11 @@ public class DBproject{
 		departure_port CHAR(5) NOT NULL,-- PORT CODE --
 		PRIMARY KEY (cnum)*/
 		
+		//date format so it matches date of the data
 		DateTimeFormatter Date = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-		 
+		
 		int cnum ;
+		//get input for cnum and put it into  int cnum
 		do {
 		    try {
 			System.out.print("\tEnter cnum: $");
@@ -506,6 +518,7 @@ public class DBproject{
 		} while (true);
 		
 		int cost;
+		//get input for cost and put it into  int cost
 		do {
 		    try {
 			System.out.print("\tEnter cost: $");
@@ -525,6 +538,7 @@ public class DBproject{
 		} while (true);
 		
 		int num_sold;
+		//get input for num_sold and put it into  int num_sold
 		do {
 		    try {
 			System.out.print("\tEnter num_sold: $");
@@ -541,6 +555,7 @@ public class DBproject{
 		} while (true);
 		
 		int num_stops;
+		//get input for num_stops and put it into  int num_stops
 		do {
 		    try {
 			System.out.print("\tEnter num_stops: $");
@@ -557,6 +572,7 @@ public class DBproject{
 		} while (true);
 		
 		String actual_departure_date ;
+		//get input for actual_departure_date and put it into  String actual_departure_date then convert it to the date type
 		do {
 		    try {
 			System.out.print("\tEnter actual_departure_date [yyyy-MM-dd HH:mm]: $");
@@ -571,6 +587,7 @@ public class DBproject{
 		} while (true);
 		
 		String actual_arrival_date  ;
+		//get input for actual_arrival_date and put it into  String actual_arrival_date then convert it to the date type
 		do {
 		    try {
 			System.out.print("\tEnter actual_arrival_date  [yyyy-MM-dd HH:mm]: $");
@@ -585,6 +602,7 @@ public class DBproject{
 		} while (true);
 		
 		String arrival_port   ;
+		//get input for arrival_port and put it into String arrival_port 
 		do {
 		    try {
 			System.out.print("\tEnter arrival_port : $");
@@ -604,6 +622,7 @@ public class DBproject{
 		} while (true);
 		
 		String departure_port    ;
+		//get input for departure_port and put it into String departure_port 
 		do {
 		    try {
 			System.out.print("\tEnter departure_port  : $");
@@ -624,6 +643,7 @@ public class DBproject{
 		
 		
 		try{
+			//Use the values and add a Cruise to the Cruise table 
 		String query = "INSERT INTO Cruise (cnum, cost, num_sold, num_stops,actual_departure_date,actual_arrival_date,arrival_port, departure_port)"; 
 		query += " VALUES (" + cnum  + ", \'" + cost  + "\', \'" + num_sold + "\', \'" + num_stops + "\', \'" +actual_departure_date;
 		query += "\', \'" +   actual_arrival_date  + "\', \'" + arrival_port   + "\', \'" + departure_port+"\');"; 		 esql.executeUpdate(query);
@@ -780,6 +800,10 @@ public class DBproject{
 		} while (true);
 
 		try {
+			//T1 is  number of seats
+			//T2 is number of sold
+			//subtract them to get availible seats.
+			//there is one date per cruise therefore we do not use the input for date.
 			//String query = "SELECT T1.seats-T2.num_sold FROM Ship S, Cruise C, (SELECT C1.cnum, S1.seats FROM Cruise C1, CruiseInfo CI1, Ship S1 WHERE CI1.ciid = C1.cnum AND CI1.ship_id = S1.id) AS T1, (SELECT C2.cnum, C2.num_sold FROM Cruise C2 GROUP BY C2.cnum) AS T2 WHERE C.cnum = T1.cnum AND T1.cnum = T2.cnum AND T1.cnum = " + cnum + " AND C.actual_departure_date  = " +actual_departure_date + ";";
 			String query = "SELECT DISTINCT T1.seats-T2.num_sold AS availSeats FROM Ship S, (SELECT C1.cnum, S1.seats FROM Cruise C1, CruiseInfo CI1, Ship S1 WHERE CI1.ciid = C1.cnum AND CI1.ship_id = S1.id) AS T1, (SELECT C2.cnum, C2.num_sold FROM Cruise C2 GROUP BY C2.cnum) AS T2 WHERE  T1.cnum = T2.cnum AND T1.cnum = " + cnum + " ;";
 
@@ -800,7 +824,8 @@ public class DBproject{
 		//order by repairs DESC
 		
 		try {
-			String query =" SELECT ship_id, COUNT(ship_id) FROM Repairs R  GROUP BY ship_id ORDER BY COUNT(ship_id) DESC;";			
+			//get ship ID and count the number of existing ship_ids from all of the repairs. Order the count by descending.
+			String query =" SELECT ship_id, COUNT(ship_id) FROM Repairs R GROUP BY ship_id ORDER BY COUNT(ship_id) DESC;";			
 			esql.executeQueryAndPrintResult(query);
 		}
 		catch(Exception e) {
@@ -819,10 +844,11 @@ public class DBproject{
 		//where (statuse = input)
 		String input;
 		do {
+			//get status
 		    try {
 			System.out.print("\tEnter status: ");
 			input = in.readLine();
-			if(!input.equals("W") && !input.equals("C") && !input.equals("R")){
+			if(!input.equals("W") && !input.equals("C") && !input.equals("R")){ //if the input isn't valid, throw exception
 				throw new RuntimeException("");
 			}
 			break;
@@ -834,6 +860,7 @@ public class DBproject{
 		} while (true);
 		
 		try {
+			//count number of reservations with same input status
 			String query ="SELECT COUNT(*) FROM Reservation WHERE status = '" + input + "';";			
 			esql.executeQueryAndPrintResult(query);
 		}
