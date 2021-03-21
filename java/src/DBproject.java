@@ -681,7 +681,7 @@ public class DBproject{
 			query = "SELECT status FROM Reservation WHERE ccid = " + ccid + "AND cid = " + cid + ";";
 			if(esql.executeQueryAndPrintResult(query) == 0) {
 				while(true) {
-					System.out.println("Your reservation is not in our database. Do you want to book a cruise? input 'yes' or 'no': ");
+					System.out.println("\tNo reservation yet. Do you want to book a cruise? 'yes' or 'no': ");
 					try {
 						userInput = in.readLine();
 						if(userInput.equals("yes") || userInput.equals("y")) {
@@ -693,31 +693,6 @@ public class DBproject{
 							catch(Exception e) {
 								System.err.println(e.getMessage());
 							}
-							/*while(true) {
-								System.out.print("Input Reservation Number: ");
-								try {
-									rnum = Integer.parseInt(in.readLine());
-									break;
-								}
-								catch(Exception e) {
-									System.out.println("Invalid input. Exception: " + e.getMessage());
-									continue;
-								}
-							}
-							//while(true) {
-								System.out.print("Input Reservation Status (W, C, or R): ");
-								try {
-									status = in.readLine();
-									if(status != "W" && status != "C" && status != "R") {
-										throw new RuntimeException("Input does not match any reservation option. Input must be Waitlisted 'W', Confirmed 'C', or Reserved 'R'.");
-									}
-									break;
-								}
-								catch(Exception e) {
-									System.out.println("Invalid input. Exception: " + e.getMessage());
-									continue;
-								}
-							//}*/
 							
 							try {
 								query = "SELECT T1.cnum, T1.seats-T2.num_sold FROM (SELECT C1.cnum, S1.seats FROM Cruise C1, CruiseInfo CI1, Ship S1 WHERE CI1.ciid = C1.cnum AND CI1.ship_id = S1.id) AS T1, (SELECT C2.cnum, C2.num_sold FROM Cruise C2 GROUP BY C2.cnum) AS T2 WHERE T1.cnum = T2.cnum AND T1.cnum = " + cid + ";";
@@ -765,49 +740,6 @@ public class DBproject{
 					}
 				}
 			}
-			/*else { 
-				while(true) {
-					 try {
-                            			System.out.println("Reservation found. Do you wish to update you reservation status? Input yes or no.");
-                            			userInput = in.readLine();
-                            			if(userInput.equals("yes") || userInput.equals("y")) {
-                                			while (true) {
-                                    				System.out.print("Input new Reservation Status(W, C, or R: " );
-                                    				try {
-                                        				status = in.readLine();
-                                        				if(status.e && status != "C" && status != "R") {
-                                            					throw new RuntimeException("Your input is invalid! Status can only be W, C, or R");
-                                        				}
-                                        				break;
-                                    				}
-                                    				catch(Exception e) {
-                                        				System.out.println("Input is invalid. Exception: " + e.getMessage());
-                                       					 continue;
-                                    				}
-                                			}
-
-                                			try {
-                                    				query = "UPDATE Reservation SET status = \'" + status + "\' WHERE cid = " + ccid + " AND fid = " + cid + ";";
-                                    				esql.executeQueryAndPrintResult(query);
-                                			}
-                               	 			catch (Exception e) {
-                                    				System.err.println(e.getMessage());
-                                			}
-                            			}
-                            			else if (userInput.equals("no") || userInput.equals("n")) {
-							continue;
-						}
-						else {
-                                			throw new RuntimeException("Invalid input. Input must be 'yes', 'y', 'no', or 'n'.");
-                            			}
-                            			break;
-                        		}
-                        		catch(Exception e){
-                            			System.out.println("Your input is invalid! Your exception is: " + e.getMessage());
-                            			continue;
-                        		}
-                    		}
-                	}*/
             }
             catch(Exception e) {
                 System.err.println(e.getMessage());
