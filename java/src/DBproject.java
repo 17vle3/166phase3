@@ -722,6 +722,7 @@ public class DBproject{
 								
 								//query = "SELECT R.rnum, R.ccid, R.cid, R.status FROM Reservation R;";
 								//esql.executeQueryAndPrintResult(query);
+								break;
 								
 							}
 							catch(Exception e) {
