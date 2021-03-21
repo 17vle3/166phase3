@@ -703,7 +703,7 @@ public class DBproject{
 							    try {
 								System.out.print("\tEnter status: ");
 								status = in.readLine();
-								if(!input.equals("W") && !input.equals("C") && !input.equals("R")){
+								if(!status.equals("W") && !status.equals("C") && !status.equals("R")){
 									throw new RuntimeException("");
 								}
 								break;
