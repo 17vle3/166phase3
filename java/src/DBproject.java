@@ -722,14 +722,13 @@ public class DBproject{
 								
 								//query = "SELECT R.rnum, R.ccid, R.cid, R.status FROM Reservation R;";
 								//esql.executeQueryAndPrintResult(query);
-								break;
-								
+
 							}
 							catch(Exception e) {
 								System.err.println("Invalid input" + e.getMessage());
 								continue;
 							}
-							break;
+							
 						}
 						else if(userInput.equals("no") || userInput.equals("n")) {
 							break;
@@ -743,6 +742,7 @@ public class DBproject{
 						System.out.println("Invalid input. Exception: " + e.getMessage());
 						continue;
 					}
+					break;
 				}
 			}
             }
